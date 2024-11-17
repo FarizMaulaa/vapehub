@@ -70,13 +70,13 @@ const Product = () => {
     return (
         <div>
             {/* Search Input */}
-            <div className="mb-4 px-2 mt-1 ">
+            <div className="mb-4 px-2 sm:px-12 mt-2 ">
                 <input
                     type="text"
                     placeholder="Cari produk..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full p-2 border rounded" 
+                    className="w-full border-black border-2 p-2.5 focus:outline-none focus:shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFA6F6] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]" 
                 />
             </div>
 
@@ -84,37 +84,40 @@ const Product = () => {
             {filteredProducts.length === 0 ? (
                 <p className="text-center text-gray-500">Produk tidak ditemukan</p>
             ) : (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {filteredProducts.map((product) => (
-                        <div
-                            className="bg-white rounded-lg shadow-md font-inter p-4 transition-transform transform hover:scale-105"
-                            key={product.id}
-                        >
-                            <div className="w-full aspect-w-1 aspect-h-1 overflow-hidden rounded-lg border border-gray-300">
-                                <img
-                                    src={product.image}
-                                    alt={product.name}
-                                    onClick={() => handleClick(product.id)}
-                                    className="object-cover object-center w-full h-full cursor-pointer"
-                                />
-                            </div>
-                            <h3 className="mt-2 text-sm font-semibold text-gray-800">{product.name}</h3>
-                            <h2 className="text-base font-bold text-gray-700">{formatRupiah(product.price)}</h2>
-                            <div className="flex justify-between mt-2 text-gray-500 text-xs">
-                            <div className="flex items-center mb-3 ml-1">
-                                <BiMap />
-                                <p className="md:text-sm text-xs ">{product.location}</p>
-                            </div>
-                                    <button
+                <div className="flex justify-center items-center">
+                    <div className="m-1 grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {filteredProducts.map((product) => (
+                            <div
+                                className=" sm:w-44 border-black border-2 p-2.5 focus:outline-none shadow-[2px_2px_0px_rgba(0,0,0,1)] focus:bg-[#FFA6F6] active:shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                                key={product.id}
+                            >
+                                <div className="w-full aspect-w-1 aspect-h-1 overflow-hidden rounded-lg border border-gray-300">
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
                                         onClick={() => handleClick(product.id)}
-                                        type="button"
-                                        className="px-3 py-1 text-sm bg-green-400 text-black rounded hover:bg-green-500 border-b-4 border-r-4 border-gray-800"
-                                    >
-                                        Beli
-                                    </button>
+                                        className="object-cover object-center w-full h-full cursor-pointer"
+                                    />
+                                </div>
+                                <h3 className="mt-2 text-sm font-semibold text-gray-800">{product.name}</h3>
+                                <h2 className="text-base font-bold text-gray-700">{formatRupiah(product.price)}</h2>
+                                <div className="flex justify-between mt-2 text-gray-500 text-xs">
+                                <div className="flex items-center mb-3 ml-1">
+                                    <BiMap />
+                                    <p className="md:text-sm text-xs ">{product.location}</p>
+                                </div>
+                                        <button
+                                            onClick={() => handleClick(product.id)}
+                                            type="button"
+                                            className ="px-3 py-1 border-black border-2 p-2.5 bg-green-300 hover:bg-green-400 shadow-[2px_2px_0px_rgba(0,0,0,1)] text-black"
+                                            // className="px-3 py-1 text-sm bg-green-400 text-black rounded hover:bg-green-500 border-b-4 border-r-4 border-gray-800"
+                                        >
+                                            Beli
+                                        </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             )}
         </div>

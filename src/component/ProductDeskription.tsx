@@ -76,14 +76,14 @@ const ProductDescription = () => {
     <div key={product.id} className="mt-6 mx-4 font-inter">
       <img src={product.image} alt={product.name} className="w-[550px]" />
       <div className="flex flex-col space-y-2">
-        <h2 className="text-3xl font-bold mt-2">{product.name}</h2>
+        <h2 className="text-3xl font-bold mt-1">{product.name}</h2>
         <h2 className="text-3xl font-bold mt-1">{formatRupiah(product.price)}</h2>
       </div>
       <div>
         <Link to={waLink} target="_blank" rel="noopener noreferrer">
           <button
             type="button"
-            className="px-5 font-semibold py-2 bg-green-400 rounded border-b-4 border-r-4 border-gray-800 text-black my-2"
+            className="px-6 font-semibold py-2 my-2 border-black border-2 p-2.5 bg-green-300 hover:bg-green-400 shadow-[2px_2px_0px_rgba(0,0,0,1)] text-black"
           >
             <div className="flex items-center space-x-1">
               <FaWhatsapp className="text-2xl" />
